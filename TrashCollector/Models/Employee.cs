@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,5 +14,8 @@ namespace TrashCollector.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ZIP { get; set; }
+        [ForeignKey("User")]
+        public string UserGuid { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

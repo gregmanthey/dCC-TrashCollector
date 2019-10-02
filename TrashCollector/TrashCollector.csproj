@@ -177,6 +177,14 @@
     <Compile Include="Migrations\201910021508043_Initial.Designer.cs">
       <DependentUpon>201910021508043_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910021754540_AddedCustomerEmployee.cs" />
+    <Compile Include="Migrations\201910021754540_AddedCustomerEmployee.Designer.cs">
+      <DependentUpon>201910021754540_AddedCustomerEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910021828293_AddedFKToEmployee.cs" />
+    <Compile Include="Migrations\201910021828293_AddedFKToEmployee.Designer.cs">
+      <DependentUpon>201910021828293_AddedFKToEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -262,6 +270,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910021508043_Initial.resx">
       <DependentUpon>201910021508043_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910021754540_AddedCustomerEmployee.resx">
+      <DependentUpon>201910021754540_AddedCustomerEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910021828293_AddedFKToEmployee.resx">
+      <DependentUpon>201910021828293_AddedFKToEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
