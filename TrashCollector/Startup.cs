@@ -22,14 +22,18 @@ namespace TrashCollector
 
             if (!roleManager.RoleExists("Employee"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Employee";
+                var role = new IdentityRole
+                {
+                    Name = "Employee"
+                };
                 roleManager.Create(role);
             }
             if (!roleManager.RoleExists("Customer"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Customer";
+                var role = new IdentityRole
+                {
+                    Name = "Customer"
+                };
                 roleManager.Create(role);
             }
         }
