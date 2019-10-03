@@ -30,17 +30,18 @@ namespace TrashCollector.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            return View();
+            //Customer customer = new Customer();
+            return View(new Customer());
         }
 
         // POST: Customers/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Customer customer)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                context.Customers.Add(customer);
                 return RedirectToAction("Index");
             }
             catch
