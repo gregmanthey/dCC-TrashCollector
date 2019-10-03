@@ -22,6 +22,9 @@ namespace TrashCollector.Models
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+
+        [Required]
+        [RegularExpression("^[0-9]{1,5}$", ErrorMessage = "Please Enter 5 digit numeric ZIP Code")]
         public string ZIP { get; set; }
 
         [Display(Name = "Pickup Day")]
