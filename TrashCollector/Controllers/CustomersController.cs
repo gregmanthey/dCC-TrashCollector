@@ -42,6 +42,7 @@ namespace TrashCollector.Controllers
             {
                 // TODO: Add insert logic here
                 context.Customers.Add(customer);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -53,17 +54,26 @@ namespace TrashCollector.Controllers
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(GetCustomerFromId(id));
         }
 
         // POST: Customers/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Customer customer)
         {
             try
             {
                 // TODO: Add update logic here
-
+                var customerFoundInDb = GetCustomerFromId(id);
+                customerFoundInDb.FirstName = customer.FirstName;
+                customerFoundInDb.LastName = customer.LastName;
+                customerFoundInDb.StreetAddress = customer.StreetAddress;
+                customerFoundInDb.City = customer.City;
+                customerFoundInDb.State = customer.State;
+                customerFoundInDb.ZIP = customer.ZIP;
+                customerFoundInDb.PickupDay = customer.PickupDay;
+                customerFoundInDb.PickupDate = customer.PickupDate;
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
