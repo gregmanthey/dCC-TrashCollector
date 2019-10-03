@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201910022004100_AddedEmployeeFields.Designer.cs">
       <DependentUpon>201910022004100_AddedEmployeeFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910031329352_DateFieldChange.cs" />
+    <Compile Include="Migrations\201910031329352_DateFieldChange.Designer.cs">
+      <DependentUpon>201910031329352_DateFieldChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910022004100_AddedEmployeeFields.resx">
       <DependentUpon>201910022004100_AddedEmployeeFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910031329352_DateFieldChange.resx">
+      <DependentUpon>201910031329352_DateFieldChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,6 +28,7 @@ namespace TrashCollector.Models
         public string PickupDay { get; set; }
 
         [Display(Name = "Pickup Date")]
+        [Column(TypeName = "Date")]
         public DateTime PickupDate { get; set; }
 
         [Display(Name = "Account Balance")]
