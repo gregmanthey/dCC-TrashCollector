@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,8 +31,8 @@ namespace TrashCollector.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            //Customer customer = new Customer();
-            return View(new Customer());
+            Customer customer = new Customer();
+            return View(customer);
         }
 
         // POST: Customers/Create
@@ -41,6 +42,7 @@ namespace TrashCollector.Controllers
             try
             {
                 // TODO: Add insert logic here
+                customer.UserGuid = User.Identity.GetUserId();
                 context.Customers.Add(customer);
                 context.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,18 +117,6 @@ namespace TrashCollector.Controllers
             catch
             {
                 throw new Exception("Customer not found");
-            }
-        }
-        private ApplicationUser GetUserFromGuid(string userGuid)
-        {
-            try
-            {
-                var foundUser = context.Users.Find(userGuid);
-                return foundUser;
-            }
-            catch
-            {
-                throw new Exception("User not found");
             }
         }
     }

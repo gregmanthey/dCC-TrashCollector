@@ -169,10 +169,9 @@ namespace TrashCollector.Controllers
                     switch (model.UserRoles)
                     {
                         case "Employee":
-
-                            break;
+                            return RedirectToAction("Create", "Employees");
                         case "Customer":
-                            break;
+                            return RedirectToAction("Create", "Customers");
                         default:
                             break;
                     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,8 +31,8 @@ namespace TrashCollector.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
-            //Employee employee = new Employee();
-            return View(new Employee());
+            Employee employee = new Employee();
+            return View(employee);
         }
 
         // POST: Employees/Create
@@ -41,6 +42,8 @@ namespace TrashCollector.Controllers
             try
             {
                 // TODO: Add insert logic here
+
+                employee.UserGuid = User.Identity.GetUserId();
                 context.Employees.Add(employee);
                 context.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,18 +113,6 @@ namespace TrashCollector.Controllers
             catch
             {
                 throw new Exception("Employee not found");
-            }
-        }
-        private ApplicationUser GetUserFromGuid(string userGuid)
-        {
-            try
-            {
-                var foundUser = context.Users.Find(userGuid);
-                return foundUser;
-            }
-            catch
-            {
-                throw new Exception("User not found");
             }
         }
     }
