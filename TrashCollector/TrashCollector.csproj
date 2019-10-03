@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201910021828293_AddedFKToEmployee.Designer.cs">
       <DependentUpon>201910021828293_AddedFKToEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910022004100_AddedEmployeeFields.cs" />
+    <Compile Include="Migrations\201910022004100_AddedEmployeeFields.Designer.cs">
+      <DependentUpon>201910022004100_AddedEmployeeFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -278,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910021828293_AddedFKToEmployee.resx">
       <DependentUpon>201910021828293_AddedFKToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910022004100_AddedEmployeeFields.resx">
+      <DependentUpon>201910022004100_AddedEmployeeFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

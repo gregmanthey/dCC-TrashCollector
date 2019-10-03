@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
     public class CustomersController : Controller
     {
+        ApplicationDbContext context;
+        public CustomersController()
+        {
+            context = new ApplicationDbContext();
+        }
         // GET: Customers
         public ActionResult Index()
         {
-            return View();
+            return View(context.Customers.ToList());
         }
 
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var customerFoundInDb = GetCustomerFromId(id);
+            return View(customerFoundInDb);
         }
 
         // GET: Customers/Create
@@ -84,6 +91,14 @@ namespace TrashCollector.Controllers
             {
                 return View();
             }
+        }
+        private Customer GetCustomerFromId(int id)
+        {
+            return context.Customers.Find(id);
+        }
+        private ApplicationUser GetUserFromGuid(string userGuid)
+        {
+            return context.Users.Find(userGuid);
         }
     }
 }
