@@ -85,17 +85,19 @@ namespace TrashCollector.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(GetCustomerFromId(id));
         }
 
         // POST: Customers/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Customer customer)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                var customerFoundInDb = GetCustomerFromId(id);
+                context.Customers.Remove(customerFoundInDb);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
