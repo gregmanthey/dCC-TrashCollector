@@ -102,11 +102,27 @@ namespace TrashCollector.Controllers
         }
         private Employee GetEmployeeFromId(int id)
         {
-            return context.Employees.Find(id);
+            try
+            {
+                var foundEmployee = context.Employees.Find(id);
+                return foundEmployee;
+            }
+            catch
+            {
+                throw new Exception("Employee not found");
+            }
         }
         private ApplicationUser GetUserFromGuid(string userGuid)
         {
-            return context.Users.Find(userGuid);
+            try
+            {
+                var foundUser = context.Users.Find(userGuid);
+                return foundUser;
+            }
+            catch
+            {
+                throw new Exception("User not found");
+            }
         }
     }
 }

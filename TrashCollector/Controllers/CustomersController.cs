@@ -107,11 +107,27 @@ namespace TrashCollector.Controllers
         }
         private Customer GetCustomerFromId(int id)
         {
-            return context.Customers.Find(id);
+            try
+            {
+                var foundCustomer = context.Customers.Find(id);
+                return foundCustomer;
+            }
+            catch
+            {
+                throw new Exception("Customer not found");
+            }
         }
         private ApplicationUser GetUserFromGuid(string userGuid)
         {
-            return context.Users.Find(userGuid);
+            try
+            {
+                var foundUser = context.Users.Find(userGuid);
+                return foundUser;
+            }
+            catch
+            {
+                throw new Exception("User not found");
+            }
         }
     }
 }
