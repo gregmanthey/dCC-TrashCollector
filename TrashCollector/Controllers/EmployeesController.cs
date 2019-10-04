@@ -18,8 +18,13 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
+            string today = DateTime.Now.DayOfWeek.ToString();
+            return RedirectToAction("ViewCustomersByPickupDay", new { day = today });
+        }
+        public ActionResult ViewCustomersByPickupDay(string day)
+        {
             var currentEmployee = GetCurrentEmployee();
-            var customers = context.Customers.Where(c => c.ZIP == currentEmployee.ZIP);
+            var customers = context.Customers.Where(c => c.ZIP == currentEmployee.ZIP).Where(c => c.PickupDay == day);
             return View(customers);
         }
 
