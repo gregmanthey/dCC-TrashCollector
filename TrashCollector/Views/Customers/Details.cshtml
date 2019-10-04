@@ -10,6 +10,15 @@
     <h4>Customer</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountBalance)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -75,24 +84,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AccountBalance)
+            @Html.DisplayNameFor(model => model.SuspendStartDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AccountBalance)
+            @Html.DisplayFor(model => model.SuspendStartDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserGuid)
+            @Html.DisplayNameFor(model => model.SuspendEndDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserGuid)
+            @Html.DisplayFor(model => model.SuspendEndDate)
         </dd>
 
     </dl>
 </div>
-<p>
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
