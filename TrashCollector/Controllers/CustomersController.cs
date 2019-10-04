@@ -18,7 +18,9 @@ namespace TrashCollector.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(context.Customers.ToList());
+            var userGuid = User.Identity.GetUserId();
+            var customer = GetCustomerFromGuid(userGuid);
+            return View("Details", customer);
         }
 
         // GET: Customers/Details/5
