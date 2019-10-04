@@ -25,8 +25,10 @@
     @Html.HiddenFor(model => model.StreetAddress)
     @Html.HiddenFor(model => model.UserGuid)
     @Html.HiddenFor(model => model.ZIP)
+    @Html.HiddenFor(model => model.SuspendStartDate)
+    @Html.HiddenFor(model => model.SuspendEndDate)
 
-    
+
     <div class="form-group">
         @Html.LabelFor(model => model.PickupDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

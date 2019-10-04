@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201910031644276_ZIPValidationTesting.Designer.cs">
       <DependentUpon>201910031644276_ZIPValidationTesting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910041343120_AddSuspendStartEnd.cs" />
+    <Compile Include="Migrations\201910041343120_AddSuspendStartEnd.Designer.cs">
+      <DependentUpon>201910041343120_AddSuspendStartEnd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910031644276_ZIPValidationTesting.resx">
       <DependentUpon>201910031644276_ZIPValidationTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041343120_AddSuspendStartEnd.resx">
+      <DependentUpon>201910041343120_AddSuspendStartEnd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

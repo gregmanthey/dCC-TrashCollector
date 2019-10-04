@@ -34,6 +34,14 @@ namespace TrashCollector.Models
         [Column(TypeName = "Date")]
         public DateTime PickupDate { get; set; }
 
+        [Display(Name = "Pickup Date")]
+        [Column(TypeName = "Date")]
+        public DateTime SuspendStartDate { get; set; }
+
+        [Display(Name = "Pickup Date")]
+        [Column(TypeName = "Date")]
+        public DateTime SuspendEndDate { get; set; }
+
         [Display(Name = "Account Balance")]
         public double AccountBalance { get; set; }
 
