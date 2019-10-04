@@ -34,11 +34,11 @@ namespace TrashCollector.Models
         [Column(TypeName = "Date")]
         public DateTime PickupDate { get; set; }
 
-        [Display(Name = "Pickup Date")]
+        [Display(Name = "Suspend Service: Start Date")]
         [Column(TypeName = "Date")]
         public DateTime SuspendStartDate { get; set; }
 
-        [Display(Name = "Pickup Date")]
+        [Display(Name = "Suspend Service: End Date")]
         [Column(TypeName = "Date")]
         public DateTime SuspendEndDate { get; set; }
 

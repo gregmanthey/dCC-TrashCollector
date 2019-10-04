@@ -18,7 +18,9 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(context.Employees.ToList());
+            var currentEmployee = GetCurrentEmployee();
+            var customers = context.Customers.Where(c => c.ZIP == currentEmployee.ZIP);
+            return View(customers);
         }
 
         // GET: Employees/Details/5
@@ -113,6 +115,19 @@ namespace TrashCollector.Controllers
             catch
             {
                 throw new Exception("Employee not found");
+            }
+        }
+        private Employee GetCurrentEmployee()
+        {
+            try
+            {
+                var currentUserGuid = User.Identity.GetUserId();
+                var currentEmployee = context.Employees.SingleOrDefault(e => e.UserGuid == currentUserGuid);
+                return currentEmployee;
+            }
+            catch
+            {
+                throw new Exception("Current user is not an employee");
             }
         }
     }
