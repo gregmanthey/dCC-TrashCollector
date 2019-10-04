@@ -84,6 +84,46 @@ namespace TrashCollector.Controllers
             }
         }
 
+        public ActionResult EditPickupDate()
+        {
+            var userGuid = User.Identity.GetUserId();
+            var customer = GetCustomerFromGuid(userGuid);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult EditPickupDate(int id, Customer customer)
+        {
+            
+            return Edit(id, customer);
+        }
+        public ActionResult EditPickupDay()
+        {
+            var userGuid = User.Identity.GetUserId();
+            var customer = GetCustomerFromGuid(userGuid);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult EditPickupDay(int id, Customer customer)
+        {
+
+            return Edit(id, customer);
+        }
+        public ActionResult EditSuspendDates()
+        {
+            var userGuid = User.Identity.GetUserId();
+            var customer = GetCustomerFromGuid(userGuid);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult EditSuspendDates(int id, Customer customer)
+        {
+
+            return Edit(id, customer);
+        }
+
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
@@ -112,6 +152,18 @@ namespace TrashCollector.Controllers
             try
             {
                 var foundCustomer = context.Customers.Find(id);
+                return foundCustomer;
+            }
+            catch
+            {
+                throw new Exception("Customer not found");
+            }
+        }
+        private Customer GetCustomerFromGuid(string guid)
+        {
+            try
+            {
+                var foundCustomer = context.Customers.SingleOrDefault(c => c.UserGuid == guid);
                 return foundCustomer;
             }
             catch
