@@ -322,6 +322,7 @@
     <Content Include="Views\Shared\_LayoutEmployee.cshtml" />
     <Content Include="Views\Customers\EditPickupDay.cshtml" />
     <Content Include="Views\Customers\EditPickupDate.cshtml" />
+    <Content Include="Views\Customers\EditSuspendDates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
