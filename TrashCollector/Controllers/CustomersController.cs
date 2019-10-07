@@ -20,21 +20,20 @@ namespace TrashCollector.Controllers
         {
             var userGuid = User.Identity.GetUserId();
             var customer = GetCustomerFromGuid(userGuid);
-            return View("Details", customer);
+            return View("Details", "_LayoutCustomer", customer);
         }
 
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
             var customerFoundInDb = GetCustomerFromId(id);
-            return View(customerFoundInDb);
+            return View("_LayoutCustomer", customerFoundInDb);
         }
 
         // GET: Customers/Create
         public ActionResult Create()
         {
-            Customer customer = new Customer();
-            return View(customer);
+            return View();
         }
 
         // POST: Customers/Create
@@ -58,7 +57,7 @@ namespace TrashCollector.Controllers
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(GetCustomerFromId(id));
+            return View("_LayoutCustomer", GetCustomerFromId(id));
         }
 
         // POST: Customers/Edit/5
@@ -90,7 +89,7 @@ namespace TrashCollector.Controllers
         {
             var userGuid = User.Identity.GetUserId();
             var customer = GetCustomerFromGuid(userGuid);
-            return View(customer);
+            return View("_LayoutCustomer", customer);
         }
 
         [HttpPost]
@@ -103,7 +102,7 @@ namespace TrashCollector.Controllers
         {
             var userGuid = User.Identity.GetUserId();
             var customer = GetCustomerFromGuid(userGuid);
-            return View(customer);
+            return View("_LayoutCustomer", customer);
         }
 
         [HttpPost]
@@ -116,7 +115,7 @@ namespace TrashCollector.Controllers
         {
             var userGuid = User.Identity.GetUserId();
             var customer = GetCustomerFromGuid(userGuid);
-            return View(customer);
+            return View("_LayoutCustomer", customer);
         }
 
         [HttpPost]
@@ -129,7 +128,7 @@ namespace TrashCollector.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(GetCustomerFromId(id));
+            return View("_LayoutCustomer", GetCustomerFromId(id));
         }
 
         // POST: Customers/Delete/5

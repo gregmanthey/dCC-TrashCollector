@@ -31,19 +31,23 @@ namespace TrashCollector.Models
         public string PickupDay { get; set; }
 
         [Display(Name = "Extra Pickup Date")]
-        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [Column(TypeName = "DATE")]
         public DateTime PickupDate { get; set; }
 
         [Display(Name = "Suspend Service: Start Date")]
-        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [Column(TypeName = "DATE")]
         public DateTime SuspendStartDate { get; set; }
 
         [Display(Name = "Suspend Service: End Date")]
-        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [Column(TypeName = "DATE")]
         public DateTime SuspendEndDate { get; set; }
 
         [Display(Name = "Charged For Pickup On")]
-        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [Column(TypeName = "DATE")]
         public DateTime ChargedForPickupOn { get; set; }
 
         [Display(Name = "Account Balance")]

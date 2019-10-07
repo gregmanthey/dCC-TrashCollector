@@ -23,12 +23,12 @@ namespace TrashCollector.Controllers
             var customers = GetCustomersSharingZIP().Where(c => c.PickupDay == today).ToList();
             var pickupDateTodayCustomers = context.Customers.Where(c => c.PickupDate == todaysDate).ToList();
             customers.AddRange(pickupDateTodayCustomers);
-            return View(customers);
+            return View("_LayoutEmployee", customers);
         }
         public ActionResult ViewCustomersByPickupDay(string day)
         {
             var customers = GetCustomersSharingZIP().Where(c => c.PickupDay == day);
-            return View(customers);
+            return View("_LayoutEmployee", customers);
         }
         public ActionResult ConfirmPickup(int customerId)
         {
@@ -43,14 +43,13 @@ namespace TrashCollector.Controllers
         public ActionResult Details(int customerId)
         {
             var customerFoundInDb = GetCustomerFromId(customerId);
-            return View(customerFoundInDb);
+            return View("_LayoutEmployee", customerFoundInDb);
         }
 
         // GET: Employees/Create
         public ActionResult Create()
         {
-            Employee employee = new Employee();
-            return View(employee);
+            return View();
         }
 
         // POST: Employees/Create
