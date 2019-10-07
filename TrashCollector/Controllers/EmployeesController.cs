@@ -40,10 +40,10 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employees/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int customerId)
         {
-            var employeeFoundInDb = GetEmployeeFromId(id);
-            return View(employeeFoundInDb);
+            var customerFoundInDb = GetCustomerFromId(customerId);
+            return View(customerFoundInDb);
         }
 
         // GET: Employees/Create
@@ -119,6 +119,18 @@ namespace TrashCollector.Controllers
             catch
             {
                 return View();
+            }
+        }
+        private Customer GetCustomerFromId(int id)
+        {
+            try
+            {
+                var foundCustomer = context.Customers.Find(id);
+                return foundCustomer;
+            }
+            catch
+            {
+                throw new Exception("Customer not found");
             }
         }
         private Employee GetEmployeeFromId(int id)

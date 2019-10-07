@@ -63,6 +63,9 @@
                 @Html.DisplayFor(modelItem => item.ZIP)
             </td>
             <td>
+                @Html.ActionLink("Details and Map", "Details", new { customerId = item.Id })
+            </td>
+            <td>
                 @Html.ActionLink("Confirm Pickup", "ConfirmPickup", new { customerId = item.Id })
             </td>
         </tr>
