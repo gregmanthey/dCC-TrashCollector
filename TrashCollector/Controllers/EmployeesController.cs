@@ -19,12 +19,15 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
             string today = DateTime.Now.DayOfWeek.ToString();
-            return RedirectToAction("ViewCustomersByPickupDay", new { day = today });
+            var todaysDate = DateTime.Now.Date;
+            var customers = GetCustomersSharingZIP().Where(c => c.PickupDay == today).ToList();
+            var pickupDateTodayCustomers = context.Customers.Where(c => c.PickupDate == todaysDate).ToList();
+            customers.AddRange(pickupDateTodayCustomers);
+            return View(customers);
         }
         public ActionResult ViewCustomersByPickupDay(string day)
         {
-            var currentEmployee = GetCurrentEmployee();
-            var customers = context.Customers.Where(c => c.ZIP == currentEmployee.ZIP).Where(c => c.PickupDay == day);
+            var customers = GetCustomersSharingZIP().Where(c => c.PickupDay == day);
             return View(customers);
         }
         public ActionResult ConfirmPickup(int customerId, string day)
@@ -141,6 +144,11 @@ namespace TrashCollector.Controllers
             {
                 throw new Exception("Current user is not an employee");
             }
+        }
+        private IQueryable<Customer> GetCustomersSharingZIP()
+        {
+            var currentEmployee = GetCurrentEmployee();
+            return context.Customers.Where(c => c.ZIP == currentEmployee.ZIP);
         }
     }
 }

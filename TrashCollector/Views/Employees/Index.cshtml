@@ -7,11 +7,11 @@
 <h2>Customers to Pick Up From Today</h2>
 
 <p>
-    @Html.ActionLink("Monday Pickups", "Index", new { day = "Monday" }) |
-    @Html.ActionLink("Tuesday Pickups", "Index", new { day = "Tuesday" }) |
-    @Html.ActionLink("Wednesday Pickups", "Index", new { day = "Wednesday" }) |
-    @Html.ActionLink("Thursday Pickups", "Index", new { day = "Thursday" }) |
-    @Html.ActionLink("Friday Pickups", "Index", new { day = "Friday" })
+    @Html.ActionLink("Monday Pickups", "ViewCustomersByPickupDay", new { day = "Monday" }) |
+    @Html.ActionLink("Tuesday Pickups", "ViewCustomersByPickupDay", new { day = "Tuesday" }) |
+    @Html.ActionLink("Wednesday Pickups", "ViewCustomersByPickupDay", new { day = "Wednesday" }) |
+    @Html.ActionLink("Thursday Pickups", "ViewCustomersByPickupDay", new { day = "Thursday" }) |
+    @Html.ActionLink("Friday Pickups", "ViewCustomersByPickupDay", new { day = "Friday" })
 </p>
 <table class="table">
     <tr>
@@ -38,6 +38,10 @@
 
     @foreach (var item in Model)
     {
+        if (item.SuspendStartDate <= DateTime.Now.Date && item.SuspendEndDate >= DateTime.Now.Date)
+        {
+            continue;
+        }
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -57,11 +61,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ZIP)
             </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>*@
+            <td>
+                @Html.ActionLink("Confirm Pickup", "ConfirmPickup", new { customerId = item.Id, day = item.PickupDay })
+            </td>
         </tr>
     }
 
