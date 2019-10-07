@@ -9,34 +9,35 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button type="button" class="navbar-toggler d-block d-md-none" data-toggle="collapse" data-target="#navbar-collapse-main" controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">Toggle navigation</span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse navbar collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li>@Html.ActionLink("Change Pickup Day", "EditPickupDay", "Customers", new { @class = "nav-link"})</li>
-                    <li>@Html.ActionLink("Schedule Extra Pickup Date", "EditPickupDate", "Customers", new { @class = "nav-link"})</li>
-                    <li>@Html.ActionLink("Suspend Service", "EditSuspendDates", "Customers", new { @class = "nav-link"})</li>
+            @Html.ActionLink("Trash Collector Customer View", "Index", "Customers", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="collapse navbar-collapse" id="navbar-collapse-main">
+                <ul class="nav navbar-nav mr-auto">
+                    <li>@Html.ActionLink("Change Pickup Day", "EditPickupDay", "Customers", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Schedule Extra Pickup Date", "EditPickupDate", "Customers", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Suspend Service", "EditSuspendDates", "Customers", new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Greg Manthey</p>
-            </footer>
-        </div>
+    <div class="container body">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Greg Manthey</p>
+        </footer>
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
