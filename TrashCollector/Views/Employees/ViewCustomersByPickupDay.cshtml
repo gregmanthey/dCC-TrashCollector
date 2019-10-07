@@ -40,6 +40,9 @@
     {
         <tr>
             <td>
+                
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
@@ -56,6 +59,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ZIP)
+            </td>
+            <td>
+                @Html.ActionLink("Confirm Pickup", "ConfirmPickup", new { customerId = item.Id, day = item.PickupDay })
             </td>
         </tr>
     }

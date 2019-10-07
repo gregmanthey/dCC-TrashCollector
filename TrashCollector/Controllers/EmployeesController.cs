@@ -27,6 +27,13 @@ namespace TrashCollector.Controllers
             var customers = context.Customers.Where(c => c.ZIP == currentEmployee.ZIP).Where(c => c.PickupDay == day);
             return View(customers);
         }
+        public ActionResult ConfirmPickup(int customerId, string day)
+        {
+            var customer = context.Customers.SingleOrDefault(c => c.Id == customerId);
+            customer.AccountBalance += 12.17;
+            context.SaveChanges();
+            return RedirectToAction("ViewCustomersByPickupDay", new { day = day });
+        }
 
         // GET: Employees/Details/5
         public ActionResult Details(int id)
