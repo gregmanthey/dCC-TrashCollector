@@ -30,12 +30,13 @@ namespace TrashCollector.Controllers
             var customers = GetCustomersSharingZIP().Where(c => c.PickupDay == day);
             return View(customers);
         }
-        public ActionResult ConfirmPickup(int customerId, string day)
+        public ActionResult ConfirmPickup(int customerId)
         {
             var customer = context.Customers.SingleOrDefault(c => c.Id == customerId);
             customer.AccountBalance += 12.17;
+            customer.ChargedForPickupOn = DateTime.Now.Date;
             context.SaveChanges();
-            return RedirectToAction("ViewCustomersByPickupDay", new { day = day });
+            return RedirectToAction("Index");
         }
 
         // GET: Employees/Details/5

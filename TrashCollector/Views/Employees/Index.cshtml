@@ -38,7 +38,8 @@
 
     @foreach (var item in Model)
     {
-        if (item.SuspendStartDate <= DateTime.Now.Date && item.SuspendEndDate >= DateTime.Now.Date)
+        var todaysDate = DateTime.Now.Date;
+        if (item.ChargedForPickupOn == todaysDate || (item.SuspendStartDate <= todaysDate && item.SuspendEndDate >= todaysDate))
         {
             continue;
         }
@@ -62,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.ZIP)
             </td>
             <td>
-                @Html.ActionLink("Confirm Pickup", "ConfirmPickup", new { customerId = item.Id, day = item.PickupDay })
+                @Html.ActionLink("Confirm Pickup", "ConfirmPickup", new { customerId = item.Id })
             </td>
         </tr>
     }
