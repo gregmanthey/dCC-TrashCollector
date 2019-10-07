@@ -30,7 +30,7 @@ namespace TrashCollector.Models
         [Display(Name = "Pickup Day")]
         public string PickupDay { get; set; }
 
-        [Display(Name = "Pickup Date")]
+        [Display(Name = "Extra Pickup Date")]
         [Column(TypeName = "Date")]
         public DateTime PickupDate { get; set; }
 

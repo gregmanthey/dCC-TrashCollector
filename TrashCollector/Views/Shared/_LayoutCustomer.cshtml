@@ -9,36 +9,34 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-expand-md fixed-top bg-dark">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Change Pickup Day", "EditPickupDay", "Customers")</li>
-                    <li>@Html.ActionLink("Schedule Extra Pickup Date", "EditPickupDate", "Customers")</li>
-                    <li>@Html.ActionLink("Suspend Service", "EditSuspendDates", "Customers")</li>
+            <div class="navbar-collapse navbar collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li>@Html.ActionLink("Change Pickup Day", "EditPickupDay", "Customers", new { @class = "nav-link"})</li>
+                    <li>@Html.ActionLink("Schedule Extra Pickup Date", "EditPickupDate", "Customers", new { @class = "nav-link"})</li>
+                    <li>@Html.ActionLink("Suspend Service", "EditSuspendDates", "Customers", new { @class = "nav-link"})</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Greg Manthey</p>
-        </footer>
-    </div>
+    </nav>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Greg Manthey</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
