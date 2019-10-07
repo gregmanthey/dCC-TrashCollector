@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201910041343120_AddSuspendStartEnd.Designer.cs">
       <DependentUpon>201910041343120_AddSuspendStartEnd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910071406420_AddChargedFieldToCustomer.cs" />
+    <Compile Include="Migrations\201910071406420_AddChargedFieldToCustomer.Designer.cs">
+      <DependentUpon>201910071406420_AddChargedFieldToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -354,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910041343120_AddSuspendStartEnd.resx">
       <DependentUpon>201910041343120_AddSuspendStartEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910071406420_AddChargedFieldToCustomer.resx">
+      <DependentUpon>201910071406420_AddChargedFieldToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
